@@ -2,11 +2,29 @@
 <flow xmlns="http://www.springframework.org/schema/webflow"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow.xsd" >
+      
+  <input name="order"/>
 
-  <view-state id="customerWelcome">
-    <transition on="phoneEntered" to="done" />
+  <view-state id="customerwelcome">
+    <transition on="phoneEntered" to="lookupCustomer" />
     <transition on="cancel" to="cancel" />
   </view-state>      
+  
+  <action-state id="lookupCustomer">
+    <!-- Evaluate and decide...-> pizzaFlowActions must be registered as a bean (it is annotated with @Component) -->
+    <!--  order is an object that is declared as &gt;input&gt; -->
+    <evaluate result="order.customer" expression="pizzaFlowActions.findCustomer(requestParameters.phoneNumber)" />
+    <transition to="registernewcustomer" on-exception="com.springpizza.flow.CustomerNotFoundException" />
+    <transition to="customerready" />
+  </action-state>
+  
+  <view-state id="registernewcustomer">
+    
+  </view-state>
+  
+  <view-state id="customerready">
+  
+  </view-state>
   
   <end-state id="done" />
   <end-state id="cancel" />

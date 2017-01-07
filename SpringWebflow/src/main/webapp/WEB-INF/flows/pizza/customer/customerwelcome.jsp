@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>customerWelcome.jsp</h1>
+<h1>customerwelcome.jsp</h1>
 
 Type in your details:
 

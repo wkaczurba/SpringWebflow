@@ -3,13 +3,14 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
   
-  <!-- TODO: add some global variable -->
+  <var name="order" class="com.springpizza.domain.Order" />
   
   <view-state id="hello">
     <transition to="customer" />
   </view-state>
   
   <subflow-state id="customer" subflow="pizza/customer" >
+    <input name="order" value="order"/>
     <!--  TODO: Add input variables -->
     <transition on="done" to="hello2" />
     <transition on="cancel" to="finished" />
