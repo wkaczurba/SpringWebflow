@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow.xsd" >
+ 
+  <!-- need to have input object declared; marked as required, -->
+  <!--    so if it is not input by superflow - an error will be output -->
+  <input name="order" required="true"/>
+  
+  <!--  order: 3 options: add pizza, checkout, cancel -->
+  <view-state id="showOrder">
+  
+    <transition to="cancel" on="cancel" />
+    <transition to="checkout" on="checkout" />
+    <transition to="createpizza" on="addpizza" />
+  </view-state>
+  
+  <view-state id="createpizza">
+    <transition on="cancel" to="showOrder" />
+    <transition on="add" to="showOrder" >
+      <!-- TODO: Add action of adding to the order -->
+    </transition>
+  </view-state>
+  
+
+  <end-state id="cancel" />
+  <end-state id="checkout" />
+</flow>
+

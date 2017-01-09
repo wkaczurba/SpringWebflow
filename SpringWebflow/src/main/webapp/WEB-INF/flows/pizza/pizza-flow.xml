@@ -9,11 +9,20 @@
     <transition to="customer" />
   </view-state>
   
+  <!--  customer subflow -->
   <subflow-state id="customer" subflow="pizza/customer" >
-    <input name="order" value="order"/>
-    <!--  TODO: Add input variables -->
-    <transition on="done" to="hello2" />
+    <input name="order" value="order"/> <!-- this 'order' refers to the object varaible -->
+    <transition on="done" to="order" /> <!-- this 'order' refers to subflow name: pizza/order --> 
     <transition on="cancel" to="finished" />
+  </subflow-state>
+  
+  <!-- order subflow -->
+  <subflow-state id="order" subflow="pizza/order">
+    <input name="order" value="order" />
+    
+    <!-- TODO: Handle possible transitions from order: 'checkout' or 'cancel' -->
+    
+    <transition to="hello2" />
   </subflow-state>
 
   <view-state id="hello2">
