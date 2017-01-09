@@ -39,7 +39,7 @@ public class Order implements Serializable {
 		this.pizzas.add(pizza);
 	}
 	
-	public float getFloat() {
+	public float getTotal() {
 		return 0.0f; // pricing to be added.
 	}
 
