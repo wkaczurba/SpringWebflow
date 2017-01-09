@@ -18,12 +18,21 @@
     <transition to="customerready" />
   </action-state>
   
-  <view-state id="registernewcustomer">
-    
+  <!-- view state has to have model="order", -->
+  <!--      otherwise form values from JSP will not be saved to the order in the flow -->
+  <view-state id="registernewcustomer" model="order" popup="true">
+    <on-entry>
+      <!--  set the value in form - what to display -->
+      <!--  TODO: Try assigning different (e.g. constant) values -->
+      <evaluate expression="order.customer.phoneNumber = requestParameters.phoneNumber" />
+    </on-entry>
+    <transition on="submit" to="customerready" />
+    <transition on="cancel" to="cancel" />
   </view-state>
   
   <view-state id="customerready">
-  
+    <!-- This view should display the customer -->
+    <transition to="done" on="next" />
   </view-state>
   
   <end-state id="done" />

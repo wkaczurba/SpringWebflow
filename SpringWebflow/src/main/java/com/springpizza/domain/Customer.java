@@ -18,6 +18,16 @@ public class Customer implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 	
+	public Customer(Integer id, String name, String address, String city, String state, String zipCode, String phoneNumber) {
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+		this.phoneNumber = phoneNumber;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
