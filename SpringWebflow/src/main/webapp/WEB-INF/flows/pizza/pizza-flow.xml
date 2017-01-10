@@ -24,10 +24,18 @@
     <transition on="cancel" to="finished" />
   </subflow-state>
 
-  <view-state id="payment">
-    <transition to="finished" />
-  </view-state>
+  <subflow-state id="payment" subflow="pizza/payment">
+    <input name="order" value="order"/>
+    
+    <!--  TODO: Consider other ways of displaying it. -->
+    <transition on="paymentDone" to="thankyou" />
+    <transition on="cancel" to="finished" />
+  </subflow-state>
   
+  <!--  finished with taking payment -->
+  <view-state id="thankyou" />
+  
+  <!-- finished without taking anything... -->
   <view-state id="finished">
     <transition to="endState"/>
   </view-state>

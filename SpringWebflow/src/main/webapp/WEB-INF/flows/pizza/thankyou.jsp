@@ -7,11 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>payment.jsp</h1>
+<h1>Thank you</h1>
 
-You are now in payment.jsp. There is a subflow to be done here... 
-
-<a href='${flowExecutionUrl}&_eventId=finished'>Finish</a>
+Order and payment taken. Expect delivery soon.
 
 </body>
 </html>

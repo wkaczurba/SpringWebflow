@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Cancelled</h1>
+<h1>Payment error.</h1>
 
-The order has been canceled and no payment taken.
+<a href='${flowExecutionUrl}&_eventId_cancel'>Cancel order</a>
+
 </body>
 </html>
