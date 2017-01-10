@@ -12,7 +12,8 @@ public class Pizza implements Serializable {
 	private List<PizzaTopping> toppings;
 	
 	public Pizza() {
-		//size =
+		// What if this is not set - will forms throw NULL pointer exception? (likely so...)
+		size = PizzaSize.LARGE;
 		toppings = new ArrayList<>();
 	}
 	

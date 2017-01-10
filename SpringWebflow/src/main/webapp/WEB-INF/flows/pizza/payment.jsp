@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Hello2.jsp</h1>
+<h1>payment.jsp</h1>
 
-You are now in Hello2.jsp. (transferred from Hello.jsp)
+You are now in payment.jsp. There is a subflow to be done here... 
 
 <a href='${flowExecutionUrl}&_eventId=finished'>Finish</a>
 

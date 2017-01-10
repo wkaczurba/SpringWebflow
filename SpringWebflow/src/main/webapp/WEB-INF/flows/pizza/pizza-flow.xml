@@ -20,12 +20,11 @@
   <subflow-state id="order" subflow="pizza/order">
     <input name="order" value="order" />
     
-    <!-- TODO: Handle possible transitions from order: 'checkout' or 'cancel' -->
-    
-    <transition to="hello2" />
+    <transition on="checkout" to="payment" />
+    <transition on="cancel" to="finished" />
   </subflow-state>
 
-  <view-state id="hello2">
+  <view-state id="payment">
     <transition to="finished" />
   </view-state>
   

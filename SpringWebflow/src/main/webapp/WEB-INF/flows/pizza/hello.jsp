@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Hello.jsp</h1>
+<h1>Welcome to SpringPizza.</h1>
 
-<a href='${flowExecutionUrl}&_eventId=finished'>Finish</a>
+<a href='${flowExecutionUrl}&_eventId=finished'>Begin order...</a>
 
 </body>
 </html>

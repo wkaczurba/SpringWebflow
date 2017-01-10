@@ -9,16 +9,25 @@
   
   <!--  order: 3 options: add pizza, checkout, cancel -->
   <view-state id="showOrder">
-  
     <transition to="cancel" on="cancel" />
     <transition to="checkout" on="checkout" />
     <transition to="createpizza" on="addpizza" />
   </view-state>
   
-  <view-state id="createpizza">
-    <transition on="cancel" to="showOrder" />
+  <view-state id="createpizza" model="flowScope.newpizza">
+   <on-entry>
+      <!-- create new pizza object so it can be bind with forms and set with new values in createpizza.jsp -->
+      <set name="flowScope.newpizza" value="new com.springpizza.domain.Pizza()" />
+      
+      <!-- set another variable with list of toppings so they are easy to display: -->
+      <!-- notice that: T() is used to access static function of a class/enum/etc. -->
+      <set name="flowScope.toppingsList" value="T(com.springpizza.domain.PizzaTopping).asList()" />
+    </on-entry>
+   <transition on="cancel" to="showOrder" />
     <transition on="add" to="showOrder" >
-      <!-- TODO: Add action of adding to the order -->
+      <!-- newpizza should be added to list of pizzas; -->
+      <evaluate expression="order.pizzas.add(flowScope.newpizza)" />
+      <evaluate expression="pizzaFlowActions.dbgPrintPizzas(order)" />
     </transition>
   </view-state>
   
