@@ -3,6 +3,7 @@ package com.springpizza.flow;
 import org.springframework.stereotype.Component;
 
 import com.springpizza.domain.Payment;
+import com.springpizza.domain.PaymentDetails;
 import com.springpizza.domain.Customer;
 import com.springpizza.domain.Order;
 import com.springpizza.domain.Pizza;
@@ -32,10 +33,9 @@ public class PizzaFlowActions {
 		System.out.println( pizza.getSize() + ":" + pizza.getToppings());
 	}
 	
-	public Payment verifyPayment(Payment payment) {
-		// FIXME: Uncomment:
-		//if (Math.random() < 0.01)
-		//	throw new PaymentVerificationException();
+	public Payment verifyPayment(PaymentDetails details, Payment payment) {
+		if (Math.random() < 0.02)
+		  throw new PaymentVerificationException();
 		return payment;
 	}
 }
